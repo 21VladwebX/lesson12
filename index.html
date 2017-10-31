@@ -4,22 +4,40 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="css/main.css">
   <title>Document</title>
 </head>
 <body>
   <div class="res">
+    <form class="form" action="index.html" method="post">
+      <label for="width"> Insert width</label>
+      <input type="text" name="width"  class="width">
+      <label for="height"> Insert height</label>
+      <input type="text" name="height"  class="height">
+      <label for="long"> Insert long</label>
+      <input type="text" name="long"  class="long">
+      <label for="door"> Insert count of door</label>
+      <input type="text" name="door"  class="door">
+      <label for="door"> Insert count of windows</label>
+      <input type="text" name="windows"  class="windows">
+      <!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!     -->
+      <label for="walp"> Insert walp</label>
+      <input type="text" name="walp"  class="walp">
+      <label for="paint"> Insert paint</label>
+      <input type="text" name="paint"  class="paint">
+      <button type="submit" name="button" id="button">Обработать</button>
+    </form>
 
   </div>
   <script>
+  var door = document.getElementsByName('door')[0].value,
+      windows = document.getElementsByName("windows")[0].value,
+      sizeWidth = document.getElementsByName("width")[0].value,
+      sizeHeight = document.getElementsByName("height")[0].value,
+      long = document.getElementsByName("long")[0].value,
+      walp = document.getElementsByName("walp")[0].value,
+      paint = document.getElementsByName("paint")[0].value;
 
-  var door = parseInt(prompt("Doors")),
-      windows = parseInt(prompt("windows")),
-      sizeWidth = parseFloat(prompt("sizeWidth")),
-      sizeHeight = parseFloat(prompt("sizeHeight")),
-      long = parseInt(prompt("long"));
-
-  var walp = prompt("walp"),
-      paint = prompt("paint");
 
   var Room = {
     door: door,
@@ -91,92 +109,180 @@
 
    }
   };
-  var SaveRes = {
-    room_0:{
-      door: Room.door,
-      windows: Room.windows,
-      size: {
-        width: Room.size.sizeWidth,
-        height: Room.size.sizeHeight,
-        long: Room.size.long
-      },
-      options: {
-        walper: {
-          vinil: Room.options.walper.vinil,
-          green: Room.options.walper.green,
-          flez: Room.options.walper.flez
-        },
-        toPaint: {
-          pink: Room.options.toPaint.pink,
-          green: Room.options.toPaint.green
-        }
-      },
-      cost: Room.sum(walp, paint),
-    }
-  };
-  var con = confirm("One more room?");
+  // var SaveRes = {
+  //   room_0:{
+  //     door: Room.door,
+  //     windows: Room.windows,
+  //     size: {
+  //       width: Room.size.sizeWidth,
+  //       height: Room.size.sizeHeight,
+  //       long: Room.size.long
+  //     },
+  //     options: {
+  //       walper: {
+  //         vinil: Room.options.walper.vinil,
+  //         green: Room.options.walper.green,
+  //         flez: Room.options.walper.flez
+  //       },
+  //       toPaint: {
+  //         pink: Room.options.toPaint.pink,
+  //         green: Room.options.toPaint.green
+  //       }
+  //     },
+  //     cost: Room.sum(walp, paint),
+  //   }
+  // };
+  // var con = confirm("One more room?");
 
 
-  var i = 1;
-  while (con){
-    var door = parseInt(prompt("Doors")),
-        windows = parseInt(prompt("windows")),
-        sizeWidth = parseFloat(prompt("sizeWidth")),
-        sizeHeight = parseFloat(prompt("sizeHeight")),
-        long = parseInt(prompt("long"));
 
-    var walp = prompt("walp"),
-        paint = prompt("paint");
 
-    var mask = 'room_' + i;
-    // console.log("room " , typeof(mask));
+  function NewRoom (){
 
-    SaveRes[mask] = {
-      door: door,
-      windows: windows,
-      size: {
-        width: sizeWidth,
-        height: sizeHeight,
-        long: long
-      },
-      options: {
-        walper: {
-          vinil: Room.options.walper.vinil,
-          green: Room.options.walper.green,
-          flez: Room.options.walper.flez
-        },
-        toPaint: {
-          pink: Room.options.toPaint.pink,
-          green: Room.options.toPaint.green
-        }
-      },
-      cost: Room.sum(walp, paint),
-    };
-    for (arg in SaveRes){
-      if(arg == "mask"){
-        console.log(mask);
-        arg = mask;
-        console.log(arg);
+    var door = '';
+    var windows = '';
+    var width = '';
+    var height = '';
+    var long = '';
+    var walper = '';
+    var paint = '';
+    var cost = '';
+
+    this.setRoomsParams = function(door, windows, width, height, long, walp, paint) {
+      try{
+
+        this.door = door;
+        this.windows = windows;
+        this.width = width;
+        this.height = height;
+        this.long = long;
+        // this.walper = walp;  /*??????????????*/
+        walper = walp;
+        this.paint = paint;
+        // console.log(this.walper);
+        console.log('typeof ' + typeof(walper));
+        costSum();
+      } catch(err){
+        console.log("problems in setRoomsParams");
       }
+
+
+
+    function math () {
+      // console.log('as ' + width *   height);
+      return (width * height);
+    };
+    function costSum  () {
+
+        var sum = 0;
+        var sumP = 0;
+         if(this.walp.length != 0){
+           switch(walp){
+             case 'vinil':
+               sum = (20 * math(this.width, this.height ));
+               break;
+             case 'green':
+               sum = (10 * math(this.width, this.height));
+               break;
+             case 'flez':
+               sum = (30 * math(this.width, this.height));
+               break;
+             default:
+               return 'walper is not choise!';
+               break;
+           }
+         }
+         if(this.paint.length !=0){
+           switch(pain){
+             case 'pink':
+               sumP = (600 * math());
+               break;
+             case 'green':
+               sumP = (21 * math());
+               break;
+             default:
+               return 'walper is not choise';
+               break;
+           }
+         }
+        //  else {
+        //    return "";
+        //  }
+         if(sum != 0 || sumP != 0){
+           cost = (sum + sumP);
+           console.log("cost ", cost );
+           return cost = cost;
+         }
+         else {
+           return (cost = 0);
+         }
+
+      }
+
+    this.getRoomsParams = function (){
+      return ({ "door" :door,
+        "windows": windows,
+        "width" : width ,
+        "height" :height,
+        "long" : long,
+        "walper" : walper,
+        "paint" : paint })
+      // console.log( 'type ' + typeof(cost));
+      // return ( cost);
+    };
+
+
+  };
+};
+
+
+
+
+    var btn = document.getElementById('button');
+    var i = 1;
+  btn.addEventListener('click',function(e) {
+    e.preventDefault();
+
+    var door = document.getElementsByName('door')[0].value,
+        windows = document.getElementsByName("windows")[0].value,
+        sizeWidth = document.getElementsByName("width")[0].value,
+        sizeHeight = document.getElementsByName("height")[0].value,
+        long = document.getElementsByName("long")[0].value,
+        walp = document.getElementsByName("walp")[0].value,
+        paint = document.getElementsByName("paint")[0].value;
+
+
+  
+
+
+
+
+
+
+    // console.log("room " ,door);
+    var mask = 'room_' + i;
+
+    mask = new NewRoom ();
+    mask.setRoomsParams(door, windows, sizeHeight, sizeHeight, long, walp, paint);
+    var res = mask.getRoomsParams();
+    for (key in res){
+      console.log('res ' + key + " = " + res[key] );
     }
-    // for (arg in SaveRes){
-    //   if(arg == "mask"){
-    //     console.log('WTF',mask);
-    //     arg = mask;
-    //     console.log(arg);
-    //   }
-    // }
     i++;
-    con = confirm("One more room?");
-  }
+
+    console.log("room " ,mask);
+
+  })
 
 
-  var strJSON = JSON.stringify(SaveRes);
+
+
+  // var strJSON = JSON.stringify(SaveRes);
 
   // var res = document.querySelector(.res).text(strJSON);
-  // var room = new Room;
 
-  document.write(strJSON);
+
+  // document.write(strJSON);
 
 
   // console.log(SaveRes);
