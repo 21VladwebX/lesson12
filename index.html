@@ -30,85 +30,182 @@
 
   </div>
   <script>
-  var door = document.getElementsByName('door')[0].value,
-      windows = document.getElementsByName("windows")[0].value,
-      sizeWidth = document.getElementsByName("width")[0].value,
-      sizeHeight = document.getElementsByName("height")[0].value,
-      long = document.getElementsByName("long")[0].value,
-      walp = document.getElementsByName("walp")[0].value,
-      paint = document.getElementsByName("paint")[0].value;
 
 
-  var Room = {
-    door: door,
-    windows: windows,
-    size: {
-      width: sizeWidth,
-      height: sizeHeight,
-      long: long
-    },
-    options: {
-      walper: {
-        vinil: 20,
-        green: 10,
-        flez: 30
-      },
-      toPaint: {
-        pink: 600,
-        green: 21
-      }
-    },
-    cost: 0,
-
-   math :  function (width, height) {
-     return (this.size.width * this.size.height);
-   },
-   sum: function (walper, pain)  {
-     var sum = 0;
-     var sumP = 0;
-      if(walp.length != 0){
-        switch(walp){
-          case 'vinil':
-            sum = (this.options.walper.vinil * this.math());
-            break;
-          case 'green':
-            sum = (this.options.walper.vinil * this.math());
-            break;
-          case 'flez':
-            sum = (this.options.walper.vinil * this.math());
-            break;
-          default:
-            return 'walper is not choise!';
-            break;
-        }
-      }
-      if(pain.length !=0){
-        switch(pain){
-          case 'pink':
-            sumP = (this.options.walper.vinil * this.math());
-            break;
-          case 'green':
-            sumP = (this.options.walper.vinil * this.math());
-            break;
-          default:
-            return 'walper is not choise';
-            break;
-        }
-      }
-      // else {
-      //   return ;
-      // }
-      if(sum != 0 || sumP != 0){
-        this.cost = (sum + sumP);
-        console.log("cost ", this.cost );
-        return this.cost;
-      }
-      else {
-        return (this.cost = 0);
-      }
-
-   }
-  };
+  // var Room = {
+  //   door: door,
+  //   windows: windows,
+  //   size: {
+  //     width: sizeWidth,
+  //     height: sizeHeight,
+  //     long: long
+  //   },
+  //   options: {
+  //     walper: {
+  //       vinil: 20,
+  //       green: 10,
+  //       flez: 30
+  //     },
+  //     toPaint: {
+  //       pink: 600,
+  //       green: 21
+  //     }
+  //   },
+  //   cost: 0,
+  //
+  //  math :  function (width, height) {
+  //    return (this.size.width * this.size.height);
+  //  },
+  //  sum: function (walper, pain)  {
+  //    var sum = 0;
+  //    var sumP = 0;
+  //     if(walp.length != 0){
+  //       switch(walp){
+  //         case 'vinil':
+  //           sum = (this.options.walper.vinil * this.math());
+  //           break;
+  //         case 'green':.options.walper.vinil * this.math());
+  //           break;
+  //         case 'flez':
+  //           sum = (this.options.walper.vinil * this.math());
+  //           break;
+  //         default:
+  //           return 'walper is not choise!';
+  //           break;
+  //       }
+  //     }
+  //     if(pain.length !=0){
+  //       switch(pain){
+  //           return 'walper is not choise';
+  //           break;
+  //       }
+  //     }
+  //     // else {
+  //     //   return ;
+  //     // }
+  //     if(sum != 0 || sumP != 0){
+  //       this.cost = (sum + sumP);
+  //       console.log("cost ", this.cost );
+  //       return this.cost;
+  //     }
+  //     else {
+  //       return (this.cost = 0);
+  //     }
+  //
+  //  }
+  // };      case 'pink':
+  //           sumP = (this.options.walper.vinil * this.math());
+  //           break;
+  //         case 'green':
+  //           sumP = (this.options.walper.vinil * this.math());
+  //           break;
+  //           return 'walper is not choise';
+  //           break;
+  //       }
+  //     }
+  //     // else {
+  //     //   return ;
+  //     // }
+  //     if(sum != 0 || sumP != 0){
+  //       this.cost = (sum + sumP);
+  //       console.log("cost ", this.cost );
+  //       return this.cost;
+  //     }
+  //     else {
+  //       return (this.cost = 0);
+  //     }
+  //
+  //  }
+  // };      default:
+  //           return 'walper is not choise';
+  //           break;
+  //       }
+  //     }
+  //     // else {
+  //     //   return ;
+  //     // }
+  //     if(sum != 0 || sumP != 0){
+  //       this.cost = (sum + sumP);
+  //       console.log("cost ", this.cost );
+  //       return this.cost;
+  //     }
+  //     else {
+  //       return (this.cost = 0);
+  //     }
+  //
+  //  }
+  // };
+  //           sum = (this.options.walper.vinil * this.math());
+  //           break;
+  //         case 'flez':
+  //           sum = (this.options.walper.vinil * this.math());
+  //           break;
+  //         default:
+  //           return 'walper is not choise!';
+  //           break;
+  //       }
+  //     }
+  //     if(pain.length !=0){
+  //       switch(pain){
+  //           return 'walper is not choise';
+  //           break;
+  //       }
+  //     }
+  //     // else {
+  //     //   return ;
+  //     // }
+  //     if(sum != 0 || sumP != 0){
+  //       this.cost = (sum + sumP);
+  //       console.log("cost ", this.cost );
+  //       return this.cost;
+  //     }
+  //     else {
+  //       return (this.cost = 0);
+  //     }
+  //
+  //  }
+  // };      case 'pink':
+  //           sumP = (this.options.walper.vinil * this.math());
+  //           break;
+  //         case 'green':
+  //           sumP = (this.options.walper.vinil * this.math());
+  //           break;
+  //           return 'walper is not choise';
+  //           break;
+  //       }
+  //     }
+  //     // else {
+  //     //   return ;
+  //     // }
+  //     if(sum != 0 || sumP != 0){
+  //       this.cost = (sum + sumP);
+  //       console.log("cost ", this.cost );
+  //       return this.cost;
+  //     }
+  //     else {
+  //       return (this.cost = 0);
+  //     }
+  //
+  //  }
+  // };      default:
+  //           return 'walper is not choise';
+  //           break;
+  //       }
+  //     }
+  //     // else {
+  //     //   return ;
+  //     // }
+  //     if(sum != 0 || sumP != 0){
+  //       this.cost = (sum + sumP);
+  //       console.log("cost ", this.cost );
+  //       return this.cost;
+  //     }
+  //     else {
+  //       return (this.cost = 0);
+  //     }
+  //
+  //  }
+  // };
   // var SaveRes = {
   //   room_0:{
   //     door: Room.door,
@@ -150,92 +247,99 @@
 
     this.setRoomsParams = function(door, windows, width, height, long, walp, paint) {
       try{
-
-        this.door = door;
-        this.windows = windows;
-        this.width = width;
-        this.height = height;
-        this.long = long;
-        // this.walper = walp;  /*??????????????*/
+        door = door;
+        windows = windows;
+        width = width;
+        height = height;
+        long = long;
         walper = walp;
-        this.paint = paint;
-        // console.log(this.walper);
-        console.log('typeof ' + typeof(walper));
-        costSum();
+        paint = paint;
+
       } catch(err){
         console.log("problems in setRoomsParams");
       }
 
-
-
-    function math () {
-      // console.log('as ' + width *   height);
-      return (width * height);
-    };
-    function costSum  () {
-
-        var sum = 0;
-        var sumP = 0;
-         if(this.walp.length != 0){
-           switch(walp){
-             case 'vinil':
-               sum = (20 * math(this.width, this.height ));
-               break;
-             case 'green':
-               sum = (10 * math(this.width, this.height));
-               break;
-             case 'flez':
-               sum = (30 * math(this.width, this.height));
-               break;
-             default:
-               return 'walper is not choise!';
-               break;
-           }
-         }
-         if(this.paint.length !=0){
-           switch(pain){
-             case 'pink':
-               sumP = (600 * math());
-               break;
-             case 'green':
-               sumP = (21 * math());
-               break;
-             default:
-               return 'walper is not choise';
-               break;
-           }
-         }
-        //  else {
-        //    return "";
-        //  }
-         if(sum != 0 || sumP != 0){
-           cost = (sum + sumP);
-           console.log("cost ", cost );
-           return cost = cost;
-         }
-         else {
-           return (cost = 0);
-         }
-
+    this.setCostParam = function(cst){
+      try{
+        console.log("cost in setCostParam " + cst);
+        cost = cst;
       }
+      catch(err){
+        console.log("problems in setCostparam");
+      }
+    }
 
     this.getRoomsParams = function (){
-      return ({ "door" :door,
+      // console.log("cost" + cost);
+      var res = { "door" :door,
         "windows": windows,
         "width" : width ,
         "height" :height,
         "long" : long,
         "walper" : walper,
-        "paint" : paint })
-      // console.log( 'type ' + typeof(cost));
-      // return ( cost);
+        "paint" : paint,
+        "cost" : cost
+        };
+      return res;
     };
-
-
   };
 };
 
+NewRoom.prototype.costSum = function(res,kvad) {
 
+    var sum = 0;
+    var sumP = 0;
+
+     if(res.walper.length > 0){
+       switch(res.walper){
+         case 'vinil':
+           sum = (20 * kvad);
+           break;
+         case 'green':
+           sum = (10 * kvad);
+           break;
+         case 'flez':
+           sum = (30 * kvad);
+           break;
+         default:
+           console.log('walper is not choise!');
+           break;
+       }
+     }
+     else {
+       return sum = 0;
+     }
+     if(res.paint.length > 0){
+       switch(res.paint){
+         case 'pink':
+           sumP = (600 * kvad);
+           break;
+         case 'green':
+           sumP = (21 * kvad);
+           break;
+         default:
+           console.log('paint is not choise');
+           break;
+       }
+     }
+     else {
+       return sumP = 0;
+     }
+     if(sum != 0 || sumP != 0){
+       cost = (sum + sumP);
+       return cost ;
+     }
+     else {
+       return (cost = 0);
+     }
+
+  };
+
+  NewRoom.prototype.math = function  (res) {
+
+    var kvad = (res.width  *  res.height);
+    return kvad;
+  };
 
 
     var btn = document.getElementById('button');
@@ -251,33 +355,34 @@
         walp = document.getElementsByName("walp")[0].value,
         paint = document.getElementsByName("paint")[0].value;
 
-
-  
-
-
-
-
-
-
-    // console.log("room " ,door);
     var mask = 'room_' + i;
 
     mask = new NewRoom ();
     mask.setRoomsParams(door, windows, sizeHeight, sizeHeight, long, walp, paint);
     var res = mask.getRoomsParams();
+
+    var rs = {width :res.width,
+              height: res.height};
+
+
+
+    var kvad = mask.math.call(mask, rs);
+    mask.costSum.call(mask,res,kvad);
+    console.log(kvad);
+    mask.setCostParam(kvad);
+    res = mask.getRoomsParams();
+
+
+    //  HOW IT MAKE WITH APLY????????????????????????????????????????????????????????????????????????????
+
     for (key in res){
-      console.log('res ' + key + " = " + res[key] );
+      console.log('mask ' + key + " = " + res[key] );
     }
+    // console.log("COST  res " + mask.costSum.call(mask,res,kvad));
     i++;
 
-    console.log("room " ,mask);
 
   })
-
-
-
-
-  // var strJSON = JSON.stringify(SaveRes);
 
   // var res = document.querySelector(.res).text(strJSON);
 

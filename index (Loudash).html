@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="css/main.css">
+  <title>Document</title>
+</head>
+<body>
+  <div class="res">
+    <form class="form" action="index.html" method="post">
+      <label for="width"> Insert width</label>
+      <input type="text" name="width"  class="width">
+      <label for="height"> Insert height</label>
+      <input type="text" name="height"  class="height">
+      <label for="long"> Insert long</label>
+      <input type="text" name="long"  class="long">
+      <label for="door"> Insert count of door</label>
+      <input type="text" name="door"  class="door">
+      <label for="door"> Insert count of windows</label>
+      <input type="text" name="windows"  class="windows">
+      <!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!     -->
+      <label for="walp"> Insert walp</label>
+      <input type="text" name="walp"  class="walp">
+      <label for="paint"> Insert paint</label>
+      <input type="text" name="paint"  class="paint">
+      <button type="submit" name="button" id="button">Обработать</button>
+    </form>
+
+  </div>
+  <script>
+
+    // var arr__room = new Array();
+    // arr__room = [{
+    //   "windows": windows,
+    //   "door": door,
+    //   "size": [{
+    //     "long": long,
+    //     "height": height
+    //   }],
+    //   "options" : [{
+    //     "walp": [{
+    //       "vinil": 120,
+    //       "green": 30,
+    //       "flez": 22
+    //     }],
+    //     "toPaint": [{
+    //       "pink": 600,
+    //       "green": 21
+    //     }]
+    //   }]
+    // }
+    // ]
+
+    var btn = document.getElementById('button');
+    var i = 1;
+
+
+    for( key in arr__room){
+      console.log(arr__room[key]);
+    }
+  // btn.addEventListener('click',function(e) {
+  //   e.preventDefault();
+  //
+  //   var door = document.getElementsByName('door')[0].value,
+  //       windows = document.getElementsByName("windows")[0].value,
+  //       sizeWidth = document.getElementsByName("width")[0].value,
+  //       sizeHeight = document.getElementsByName("height")[0].value,
+  //       long = document.getElementsByName("long")[0].value,
+  //       walp = document.getElementsByName("walp")[0].value,
+  //       paint = document.getElementsByName("paint")[0].value;
+  //
+  //   // console.log("room " ,door);
+  //   var mask = 'room_' + i;
+  //
+  //   mask = new NewRoom ();
+  //   mask.setRoomsParams(door, windows, sizeHeight, sizeHeight, long, walp, paint);
+  //   var res = mask.getRoomsParams();
+  //   for (key in res){
+  //     console.log('res ' + key + " = " + res[key] );
+  //   }
+  //   i++;
+  //
+  //   console.log("room " ,mask);
+  //
+  // })
+
+
+
+
+  // var strJSON = JSON.stringify(SaveRes);
+
+  // var res = document.querySelector(.res).text(strJSON);
+
+
+  // document.write(strJSON);
+
+
+  // console.log(SaveRes);
+  // console.log('Sum is ', result,  '$' );
+
+  </script>
+</body>
+</html>
